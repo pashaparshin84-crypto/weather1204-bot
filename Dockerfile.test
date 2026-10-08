@@ -1,0 +1,3 @@
+﻿FROM python:3.10-slim
+RUN pip install --no-cache-dir httpx
+CMD ["python", "-c", "import httpx; r=httpx.get('https://api.telegram.org', timeout=15); print('STATUS:', r.status_code); print('RESPONSE:', r.text[:500])"]
